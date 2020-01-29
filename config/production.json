@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://kouschatten:karasu777@connector-i8aki.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "mysecretToken",
+    "githubClientId": "ce0ee201557d91dc6b20",
+    "githubSecret": "4cec261a8be42b8616dabaed7a073ac7f8a1927e"
+  }
