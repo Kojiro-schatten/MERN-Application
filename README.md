@@ -2,7 +2,7 @@
 
  MERNを用いたアプリケーション
  相手のプロフィールを知ることで、コネクションの数を広げます。
- Thanks for Brad Traversy!
+ UdemyのMERNアプリ講座を下に作成されました。
  https://www.udemy.com/course/mern-stack-front-to-back/
  
 ## URL
