@@ -39,14 +39,26 @@ Githubアカウントを持っているユーザー様は、Githubとの連携�
 ## 機能一覧
 
   ・ユーザー登録(Node.jsとReactで構成)
+  
   ・バリデーション(Node.js)
+  
   ・Node.jsとExpressを使ったAPI構築
+  
   ・jsonウェブトークンを使ったエンドポイントセキュリティ
+  
   ・bscryptによるパスワード暗号化
+  
   ・PostmanによるAPIテスト
+  
   ・React Hooks
+  
   ・Reduxによるステートマネジメント
+  
   ・投稿管理機能
+  
   ・いいね機能
+  
   ・投稿機能
+  
   ・投稿一覧・投稿詳細表示機能
+
