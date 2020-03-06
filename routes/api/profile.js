@@ -20,7 +20,7 @@ router.get('/me', auth, async (req, res) => {
     );
 
     if (!profile) {
-      return res.status(400).json({ msg: 'There is no profile for this user' });
+      return res.status(400).json({ msg: 'プロフィールがありません' });
     }
 
     res.json(profile);
@@ -38,10 +38,10 @@ router.post(
   [
     auth,
     [
-      check('status', 'Status is required')
+      check('status', 'ステータスが要求されています')
         .not()
         .isEmpty(),
-      check('skills', 'Skills is required')
+      check('skills', 'ステータスが要求されています')
         .not()
         .isEmpty()
     ]
@@ -125,13 +125,13 @@ router.get('/user/:user_id', async (req, res) => {
       user: req.params.user_id
     }).populate('user', ['name', 'avatar']);
 
-    if (!profile) return res.status(400).json({ msg: 'Profile not found' });
+    if (!profile) return res.status(400).json({ msg: 'プロフィールが見つかりません' });
 
     res.json(profile);
   } catch (err) {
     console.error(err.message);
     if (err.kind == 'ObjectId') {
-      return res.status(400).json({ msg: 'Profile not found' });
+      return res.status(400).json({ msg: 'プロフィールが見つかりません' });
     }
     res.status(500).send('Server Error');
   }
@@ -149,7 +149,7 @@ router.delete('/', auth, async (req, res) => {
     // Remove user
     await User.findOneAndRemove({ _id: req.user.id });
 
-    res.json({ msg: 'User deleted' });
+    res.json({ msg: '削除されました' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
@@ -164,13 +164,13 @@ router.put(
   [
     auth,
     [
-      check('title', 'Title is required')
+      check('title', 'タイトルを入力してください')
         .not()
         .isEmpty(),
-      check('company', 'Company is required')
+      check('company', '会社名を入力してください')
         .not()
         .isEmpty(),
-      check('from', 'From date is required')
+      check('from', '日付を入力してください')
         .not()
         .isEmpty()
     ]
@@ -267,16 +267,16 @@ router.put(
   [
     auth,
     [
-      check('school', 'School is required')
+      check('school', '学校を入力してください')
         .not()
         .isEmpty(),
-      check('degree', 'Degree is required')
+      check('degree', '学位を入力してください')
         .not()
         .isEmpty(),
-      check('fieldofstudy', 'Field of study is required')
+      check('fieldofstudy', '専攻分野を入力してください')
         .not()
         .isEmpty(),
-      check('from', 'From date is required')
+      check('from', '日付を入力してください')
         .not()
         .isEmpty()
     ]
@@ -386,7 +386,7 @@ router.get('/github/:username', (req, res) => {
       if (error) console.error(error);
 
       if (response.statusCode !== 200) {
-        return res.status(404).json({ msg: 'No Github profile found' });
+        return res.status(404).json({ msg: 'Githubがありません' });
       }
 
       res.json(JSON.parse(body));

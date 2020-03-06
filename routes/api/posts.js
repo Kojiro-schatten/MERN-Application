@@ -15,7 +15,7 @@ router.post(
   [
     auth,
     [
-      check('text', 'Text is required')
+      check('text', '文字を入力してください')
         .not()
         .isEmpty()
     ]
@@ -68,7 +68,7 @@ router.get('/:id', auth, async (req, res) => {
 
     // Check for ObjectId format and post
     if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !post) {
-      return res.status(404).json({ msg: 'Post not found' });
+      return res.status(404).json({ msg: '記事が見つかりませんでした' });
     }
 
     res.json(post);
@@ -88,17 +88,17 @@ router.delete('/:id', auth, async (req, res) => {
 
     // Check for ObjectId format and post
     if (!req.params.id.match(/^[0-9a-fA-F]{24}$/) || !post) {
-      return res.status(404).json({ msg: 'Post not found' });
+      return res.status(404).json({ msg: '記事が見つかりませんでした' });
     }
 
     // Check user
     if (post.user.toString() !== req.user.id) {
-      return res.status(401).json({ msg: 'User not authorized' });
+      return res.status(401).json({ msg: 'ユーザー認証されておりません' });
     }
 
     await post.remove();
 
-    res.json({ msg: 'Post removed' });
+    res.json({ msg: '記事が削除されました' });
   } catch (err) {
     console.error(err.message);
 
@@ -117,7 +117,7 @@ router.put('/like/:id', auth, async (req, res) => {
     if (
       post.likes.filter(like => like.user.toString() === req.user.id).length > 0
     ) {
-      return res.status(400).json({ msg: 'Post already liked' });
+      return res.status(400).json({ msg: '既にライクされています' });
     }
 
     post.likes.unshift({ user: req.user.id });
@@ -143,7 +143,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
       post.likes.filter(like => like.user.toString() === req.user.id).length ===
       0
     ) {
-      return res.status(400).json({ msg: 'Post has not yet been liked' });
+      return res.status(400).json({ msg: 'ライクされていないです' });
     }
 
     // Get remove index
@@ -170,7 +170,7 @@ router.post(
   [
     auth,
     [
-      check('text', 'Text is required')
+      check('text', '文字を入力してください')
         .not()
         .isEmpty()
     ]
@@ -218,12 +218,12 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
 
     // Make sure comment exists
     if (!comment) {
-      return res.status(404).json({ msg: 'Comment does not exist' });
+      return res.status(404).json({ msg: 'コメントがありません' });
     }
 
     // Check user
     if (comment.user.toString() !== req.user.id) {
-      return res.status(401).json({ msg: 'User not authorized' });
+      return res.status(401).json({ msg: 'ユーザー認証されておりません' });
     }
 
     // Get remove index
