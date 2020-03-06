@@ -14,13 +14,13 @@ const User = require('../../models/User');
 router.post(
   '/',
   [
-    check('name', 'Name is required')
+    check('name', '名前を入力してください')
       .not()
       .isEmpty(),
-    check('email', 'Please include a valid email').isEmail(),
+    check('email', '有効なEmailを使用してください').isEmail(),
     check(
       'password',
-      'Please enter a password with 6 or more characters'
+      '6文字以上のパスワードを使用してください'
     ).isLength({ min: 6 })
   ],
   async (req, res) => {
@@ -37,7 +37,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ errors: [{ msg: 'User already exists' }] });
+          .json({ errors: [{ msg: 'アカウントが既に存在しています' }] });
       }
 
       const avatar = gravatar.url(email, {

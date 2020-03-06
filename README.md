@@ -2,21 +2,20 @@
 
  MERNを用いたアプリケーション
  相手のプロフィールを知ることで、コネクションの数を広げます。
- UdemyのMERNアプリ講座を下に作成されました。
- https://www.udemy.com/course/mern-stack-front-to-back/
+ UdemyのMERNアプリ講座を参考に作成しました。
  
 ## URL
  http://afternoon-reef-93395.herokuapp.com/
 
-## 使い方
+## 始め方
 
-まずは、登録をしましょう。
+npm install
 
-Githubアカウントを持っているユーザー様は、Githubとの連携が可能です。
+npm run dev
 
-プロフィール画像は、Gravatarから自動で取得します。
+cd client //clientフォルダに移動
 
-登録後は、登録者同士で、つぶやきを閲覧することができます。誰かのつぶやきに対して、積極的に会話を弾ませましょう。
+npm run start
 
 ## 使用技術
 

@@ -17,7 +17,7 @@ const Landing = ({ isAuthenticated }) => {
             人と人を繋げるアプリ
           </p>
           <div className='buttons'>
-            <span className="button-margin-modifier"></span>
+            <span className="button-margin-modifier">ログインする</span>
             <Link to='/login' className='btn btn-light btn-light-hover'>
               Login
             </Link>
